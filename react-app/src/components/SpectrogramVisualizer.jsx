@@ -9,8 +9,9 @@ export default function SpectrogramVisualizer({ active = true }) {
     const ctx = canvas.getContext('2d');
 
     const handleResize = () => {
-      canvas.width = canvas.parentElement.clientWidth;
-      canvas.height = canvas.parentElement.clientHeight;
+      if (!canvas) return;
+      canvas.width = canvas.parentElement ? canvas.parentElement.clientWidth : 300;
+      canvas.height = canvas.parentElement ? canvas.parentElement.clientHeight : 120;
     };
     handleResize();
     window.addEventListener('resize', handleResize);
