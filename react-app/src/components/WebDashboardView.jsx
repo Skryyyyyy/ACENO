@@ -111,7 +111,7 @@ export default function WebDashboardView({
         <div className="flex flex-wrap justify-between items-center gap-2 mb-4">
           <div>
             <h3 className="text-sm font-bold text-white flex items-center gap-2">
-              <Waveform className="w-4 h-4" /> Live Acoustic Spectrogram (48kHz FFT)
+              <Activity className="w-4 h-4 text-white" /> Live Acoustic Spectrogram (48kHz FFT)
             </h3>
             <p className="text-xs text-slate-400">
               Real-time frequency distribution during impulse tap strike
