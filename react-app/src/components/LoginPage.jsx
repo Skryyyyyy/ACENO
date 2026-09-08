@@ -88,13 +88,13 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-[#060708] relative overflow-hidden select-none">
+    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-[#F8FAFC] relative overflow-hidden select-none">
       {/* Subtle Ambient Background Gradients */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-white/[0.015] rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-500/[0.04] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-emerald-500/[0.03] rounded-full blur-2xl pointer-events-none" />
 
       {/* Main Container */}
-      <div className="w-full max-w-md bg-[#0e1014] border border-white/10 rounded-[38px] p-8 md:p-10 shadow-2xl backdrop-blur-xl relative z-10">
+      <div className="w-full max-w-md bg-white border border-slate-200/90 rounded-[38px] p-8 md:p-10 shadow-xl backdrop-blur-xl relative z-10">
         
         {/* ========================================================= */}
         {/* STEP 1: WELCOME BACK / LOGIN SCREEN                       */}
@@ -103,10 +103,10 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
           <div>
             {/* Header Typography */}
             <div className="mb-8">
-              <h1 className="text-3xl font-black text-white tracking-tight">
+              <h1 className="text-3xl font-black text-slate-900 tracking-tight">
                 Welcome back
               </h1>
-              <p className="text-sm text-slate-400 mt-1 font-medium">
+              <p className="text-sm text-slate-500 mt-1 font-medium">
                 Your cylinders are waiting.
               </p>
             </div>
@@ -114,7 +114,7 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
             <form onSubmit={handleLoginSubmit} className="space-y-5">
               {/* Mobile / Email Field */}
               <div>
-                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2 px-1">
+                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2 px-1">
                   Mobile / Email
                 </label>
                 <div className="relative">
@@ -124,14 +124,14 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
                     value={identifier}
                     onChange={(e) => setIdentifier(e.target.value)}
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full bg-[#14171d] border border-white/10 rounded-2xl py-4 px-4 text-sm text-white focus:outline-none focus:border-white/30 transition placeholder:text-slate-600 font-medium font-mono"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 px-4 text-sm text-slate-900 focus:outline-none focus:border-indigo-500 transition placeholder:text-slate-400 font-medium font-mono"
                   />
                 </div>
               </div>
 
               {/* Password Field with Eye Toggle */}
               <div>
-                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2 px-1">
+                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2 px-1">
                   Password
                 </label>
                 <div className="relative">
@@ -141,12 +141,12 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••••"
-                    className="w-full bg-[#14171d] border border-white/10 rounded-2xl py-4 pl-4 pr-12 text-sm text-white focus:outline-none focus:border-white/30 transition placeholder:text-slate-600 font-medium font-mono"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 pl-4 pr-12 text-sm text-slate-900 focus:outline-none focus:border-indigo-500 transition placeholder:text-slate-400 font-medium font-mono"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
@@ -158,7 +158,7 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
                 <button
                   type="button"
                   onClick={() => alert('PIN Reset link sent to your registered mobile number.')}
-                  className="text-xs text-slate-400 hover:text-white font-medium transition"
+                  className="text-xs text-slate-500 hover:text-slate-900 font-medium transition"
                 >
                   Forgot password?
                 </button>
@@ -168,10 +168,10 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 rounded-2xl bg-white text-black font-extrabold text-sm hover:bg-slate-200 active:scale-98 transition flex items-center justify-center gap-2 shadow-xl shadow-white/5"
+                className="w-full py-4 rounded-2xl bg-slate-900 text-white font-extrabold text-sm hover:bg-slate-800 active:scale-98 transition flex items-center justify-center gap-2 shadow-xl shadow-slate-900/10"
               >
                 {loading ? (
-                  <span className="inline-block w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                  <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 ) : (
                   <span>Log In</span>
                 )}
@@ -181,9 +181,9 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
             {/* OR Divider */}
             <div className="relative my-7 text-center">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-white/10" />
+                <div className="w-full border-t border-slate-200" />
               </div>
-              <span className="relative px-4 bg-[#0e1014] text-xs font-bold text-slate-500 uppercase tracking-widest">
+              <span className="relative px-4 bg-white text-xs font-bold text-slate-400 uppercase tracking-widest">
                 OR
               </span>
             </div>
@@ -198,7 +198,7 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
                   setStep('OTP');
                 }, 400);
               }}
-              className="w-full py-3.5 rounded-2xl bg-[#14171d] hover:bg-[#1d2129] border border-white/10 text-white text-xs font-bold transition flex items-center justify-center gap-3"
+              className="w-full py-3.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold transition flex items-center justify-center gap-3 shadow-sm"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24">
                 <path fill="#EA4335" d="M12 5c1.56 0 2.96.57 4.07 1.51l3.05-3.05C17.27 1.71 14.81 1 12 1 7.52 1 3.73 3.56 1.84 7.29l3.66 2.84C6.38 7.42 8.97 5 12 5z"/>
@@ -211,7 +211,7 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
 
             {/* New to THUMP? Sign up */}
             <div className="mt-8 text-center">
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 New to THUMP?{' '}
                 <button
                   type="button"
@@ -220,7 +220,7 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
                       onStartOnboarding({ identifier, role: 'ENGINEER', isNew: true });
                     }
                   }}
-                  className="font-bold text-white hover:underline ml-1"
+                  className="font-bold text-slate-900 hover:underline ml-1"
                 >
                   Sign up
                 </button>
@@ -237,19 +237,19 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
             {/* Top Back Arrow Button */}
             <button
               onClick={() => setStep('LOGIN')}
-              className="p-2 -ml-2 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition flex items-center justify-center mb-6"
+              className="p-2 -ml-2 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-900 transition flex items-center justify-center mb-6"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
 
             {/* Header Typography */}
             <div className="mb-8">
-              <h2 className="text-2xl font-black text-white tracking-tight">
+              <h2 className="text-2xl font-black text-slate-900 tracking-tight">
                 Verify your number
               </h2>
-              <p className="text-xs text-slate-400 mt-2 font-medium">
+              <p className="text-xs text-slate-500 mt-2 font-medium">
                 We sent a 6-digit code to{' '}
-                <strong className="text-white font-mono">{identifier}</strong>
+                <strong className="text-slate-900 font-mono">{identifier}</strong>
               </p>
             </div>
 
@@ -266,7 +266,7 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
                     value={digit}
                     onChange={(e) => handleOtpChange(idx, e.target.value)}
                     onKeyDown={(e) => handleOtpKeyDown(idx, e)}
-                    className="w-full h-14 bg-[#14171d] border border-white/15 focus:border-white rounded-2xl text-center text-xl font-black mono text-white focus:outline-none transition shadow-inner"
+                    className="w-full h-14 bg-slate-50 border border-slate-200 focus:border-indigo-600 rounded-2xl text-center text-xl font-black mono text-slate-900 focus:outline-none transition shadow-inner"
                   />
                 ))}
               </div>
@@ -277,14 +277,14 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
                   <button
                     type="button"
                     onClick={handleResend}
-                    className="text-xs font-bold text-white hover:underline flex items-center justify-center gap-1.5 mx-auto"
+                    className="text-xs font-bold text-indigo-600 hover:underline flex items-center justify-center gap-1.5 mx-auto"
                   >
                     <RefreshCw className="w-3.5 h-3.5" /> Resend code now
                   </button>
                 ) : (
-                  <span className="text-xs font-medium text-slate-400">
+                  <span className="text-xs font-medium text-slate-500">
                     Resend code in{' '}
-                    <strong className="text-white mono">
+                    <strong className="text-slate-900 mono">
                       00:{timer < 10 ? `0${timer}` : timer}
                     </strong>
                   </span>
@@ -295,10 +295,10 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 rounded-2xl bg-white text-black font-extrabold text-sm hover:bg-slate-200 active:scale-98 transition flex items-center justify-center gap-2 shadow-xl shadow-white/5 mt-4"
+                className="w-full py-4 rounded-2xl bg-slate-900 text-white font-extrabold text-sm hover:bg-slate-800 active:scale-98 transition flex items-center justify-center gap-2 shadow-xl shadow-slate-900/10 mt-4"
               >
                 {loading ? (
-                  <span className="inline-block w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                  <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 ) : (
                   <span>Verify</span>
                 )}
@@ -309,16 +309,16 @@ export default function LoginPage({ onLoginSuccess, onStartOnboarding }) {
                 <button
                   type="button"
                   onClick={() => setStep('LOGIN')}
-                  className="text-xs text-slate-400 hover:text-white transition font-medium"
+                  className="text-xs text-slate-500 hover:text-slate-900 transition font-medium"
                 >
-                  Wrong number? <span className="text-white font-bold underline">Change it</span>
+                  Wrong number? <span className="text-slate-900 font-bold underline">Change it</span>
                 </button>
               </div>
             </form>
 
             {/* Security Badge */}
-            <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-center space-x-2 text-slate-500 text-[11px]">
-              <ShieldCheck className="w-4 h-4 text-slate-400" />
+            <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-center space-x-2 text-slate-500 text-[11px]">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>Biometric & Multi-Factor Security</span>
             </div>
           </div>

@@ -7,6 +7,7 @@ export default function SpectrogramVisualizer({ active = true }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
     const handleResize = () => {
       if (!canvas) return;
@@ -24,7 +25,7 @@ export default function SpectrogramVisualizer({ active = true }) {
 
     let animId;
     const render = () => {
-      ctx.fillStyle = '#060708';
+      ctx.fillStyle = '#F8FAFC';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const barWidth = canvas.width / bars.length;
@@ -33,9 +34,9 @@ export default function SpectrogramVisualizer({ active = true }) {
         const h = (Math.sin(bars[i].phase) * 0.4 + 0.5) * bars[i].val * canvas.height;
 
         const grad = ctx.createLinearGradient(0, canvas.height, 0, canvas.height - h);
-        grad.addColorStop(0, '#14171d');
-        grad.addColorStop(0.5, '#64748b');
-        grad.addColorStop(1, '#FFFFFF');
+        grad.addColorStop(0, '#E2E8F0');
+        grad.addColorStop(0.5, '#6366F1');
+        grad.addColorStop(1, '#4F46E5');
 
         ctx.fillStyle = grad;
         ctx.fillRect(i * barWidth, canvas.height - h, barWidth - 3, h);

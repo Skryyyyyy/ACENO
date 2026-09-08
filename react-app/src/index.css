@@ -3,87 +3,69 @@
 @tailwind utilities;
 
 :root {
-  --bg-base: #060708;
-  --surface-1: #0e1014;
-  --surface-2: #14171d;
-  --surface-3: #1d2129;
-  --accent-glow: rgba(255, 255, 255, 0.12);
-  --ai-violet: #8B5CF6;
-  --ai-emerald: #10B981;
+  --bg-base: #F8FAFC;
+  --surface-1: #FFFFFF;
+  --surface-2: #F1F5F9;
+  --surface-3: #E2E8F0;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --accent-indigo: #4F46E5;
+  --accent-emerald: #10B981;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg-base);
-  color: #F8FAFC;
+  color: var(--text-primary);
   letter-spacing: -0.015em;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.03) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(255, 255, 255, 0.02) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, rgba(16, 185, 129, 0.02) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.04) 0px, transparent 50%),
+    radial-gradient(at 50% 30%, rgba(244, 63, 94, 0.02) 0px, transparent 50%);
 }
 
 .mono {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Dribbble-Tier Luxury Glass Card */
+/* Luxury Light Card */
 .pro-card {
-  background: linear-gradient(145deg, rgba(20, 23, 29, 0.7) 0%, rgba(14, 16, 20, 0.9) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 28px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 20px 40px -15px rgba(0, 0, 0, 0.03);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pro-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 255, 255, 0.03);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 20px 45px -10px rgba(99, 102, 241, 0.08), 0 0 0 1px rgba(99, 102, 241, 0.1);
   transform: translateY(-2px);
 }
 
-/* Glowing Border Treatment */
-.glow-border {
-  position: relative;
-}
-.glow-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.02), rgba(255,255,255,0.15));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* 3D Luxury Monochromatic Tank */
+/* 3D Modern Cylinder Tank - Light Luxury Brushed Titanium */
 .cylinder-tank-pro {
   position: relative;
-  background: linear-gradient(180deg, #181b22 0%, #0d0f13 50%, #08090c 100%);
-  border: 2px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, #F1F5F9 0%, #E2E8F0 45%, #CBD5E1 100%);
+  border: 2px solid rgba(203, 213, 225, 0.8);
   border-radius: 48px;
   overflow: hidden;
   box-shadow: 
-    inset 0 3px 15px rgba(255, 255, 255, 0.12),
-    inset 0 -10px 20px rgba(0, 0, 0, 0.8),
-    0 30px 60px -15px rgba(0, 0, 0, 0.95);
+    inset 0 3px 15px rgba(255, 255, 255, 0.9),
+    inset 0 -10px 20px rgba(148, 163, 184, 0.4),
+    0 25px 50px -12px rgba(15, 23, 42, 0.15);
 }
 
-/* Dual Wave Animation with Gloss Lighting */
+/* Dual Wave Animated Liquid Layer (Azure / Indigo Liquid LPG) */
 .liquid-layer-pro {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 30%, #475569 70%, #1E293B 100%);
+  background: linear-gradient(180deg, #6366F1 0%, #4F46E5 35%, #3730A3 100%);
   transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 -8px 35px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 -8px 30px rgba(99, 102, 241, 0.35);
 }
 
 .liquid-wave-front {
@@ -92,7 +74,7 @@ body {
   left: 0;
   width: 200%;
   height: 28px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,30 L1200,120 L0,120 Z' fill='%23FFFFFF' opacity='0.85'/%3E%3C/svg%3E");
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,30 L1200,120 L0,120 Z' fill='%236366F1' opacity='0.9'/%3E%3C/svg%3E");
   background-size: 50% 100%;
   animation: wave1 3s linear infinite;
 }
@@ -103,7 +85,7 @@ body {
   left: 0;
   width: 200%;
   height: 28px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C200,60 400,-30 600,35 C800,100 1000,20 1200,40 L1200,120 L0,120 Z' fill='%2394A3B8' opacity='0.5'/%3E%3C/svg%3E");
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C200,60 400,-30 600,35 C800,100 1000,20 1200,40 L1200,120 L0,120 Z' fill='%23818CF8' opacity='0.6'/%3E%3C/svg%3E");
   background-size: 50% 100%;
   animation: wave2 4.5s linear infinite reverse;
 }
@@ -111,43 +93,32 @@ body {
 @keyframes wave1 { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 @keyframes wave2 { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* Ultra-Polished Phone Chassis */
+/* Light Luxury Smartphone Chassis */
 .phone-mockup {
-  width: 400px;
-  height: 840px;
-  background: #090A0D;
-  border: 12px solid #1a1e26;
+  width: 405px;
+  height: 845px;
+  background: #FFFFFF;
+  border: 12px solid #E2E8F0;
   border-radius: 56px;
   box-shadow: 
-    0 40px 100px -25px rgba(0, 0, 0, 0.98),
-    0 0 0 1px rgba(255, 255, 255, 0.15),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    0 35px 80px -20px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(203, 213, 225, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
   position: relative;
-}
-
-/* Subtle Shimmer */
-@keyframes subtle-shimmer {
-  0% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.02); }
-  100% { opacity: 0.8; transform: scale(1); }
-}
-
-.shimmer-pulse {
-  animation: subtle-shimmer 3s ease-in-out infinite;
 }
 
 /* Smooth Scrollbars */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(148, 163, 184, 0.4);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(100, 116, 139, 0.7);
 }
