@@ -1,0 +1,42 @@
+{
+  "session_id": "demo-lpg-50pct-cam-001",
+  "schema_version": "1.0",
+  "proto_mode": true,
+  "container": {
+    "sku": "indane_14kg",
+    "label": "Indane Blue 14.2kg LPG Cylinder",
+    "height_cm": 58.0,
+    "radius_cm": 16.0,
+    "height_source": "camera_scan"
+  },
+  "scan": {
+    "station_count": 5,
+    "motor_tier": "B",
+    "ar_tier": "GYRO_PARALLAX",
+    "sync_method": "anchor_xcorr",
+    "agc_stubborn": false,
+    "chassis_damped": false
+  },
+  "stations": [
+    { "idx": 0, "height_pct": 10, "welch_coh": 0.88, "cosine_dist": 0.05, "repeat_count": 0, "ambient_rms_dbfs": -54.2 },
+    { "idx": 1, "height_pct": 30, "welch_coh": 0.85, "cosine_dist": 0.06, "repeat_count": 0, "ambient_rms_dbfs": -53.5 },
+    { "idx": 2, "height_pct": 50, "welch_coh": 0.79, "cosine_dist": 0.08, "repeat_count": 0, "ambient_rms_dbfs": -51.0 },
+    { "idx": 3, "height_pct": 70, "welch_coh": 0.82, "cosine_dist": 0.07, "repeat_count": 0, "ambient_rms_dbfs": -52.4 },
+    { "idx": 4, "height_pct": 90, "welch_coh": 0.86, "cosine_dist": 0.05, "repeat_count": 0, "ambient_rms_dbfs": -53.1 }
+  ],
+  "result": {
+    "level_pct_est": 50.0,
+    "confidence_low": 46.2,
+    "confidence_high": 53.8,
+    "exit_stage": "M1",
+    "ood_distance": 2.10,
+    "gt_level_pct": 50.0
+  },
+  "device": {
+    "model": "Google Pixel 9 Pro",
+    "android_api": 35,
+    "thermal_status": 1,
+    "battery_pct": 92
+  },
+  "ts_utc": 1725792000000
+}

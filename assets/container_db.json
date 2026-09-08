@@ -1,0 +1,57 @@
+[
+  {
+    "sku": "pet_500ml",
+    "label": "Standard 500ml PET Bottle",
+    "type": "pet",
+    "height_cm": 21.5,
+    "radius_cm": 3.6,
+    "volume_ml": 500,
+    "station_count": 5,
+    "height_source": "db_lookup",
+    "mock_fill_levels": [0, 25, 42, 68, 91]
+  },
+  {
+    "sku": "can_330ml",
+    "label": "330ml Aluminium Can",
+    "type": "can",
+    "height_cm": 11.5,
+    "radius_cm": 3.3,
+    "volume_ml": 330,
+    "station_count": 3,
+    "height_source": "db_lookup",
+    "mock_fill_levels": [0, 33, 66, 100]
+  },
+  {
+    "sku": "steel_1l",
+    "label": "1L Steel Bottle",
+    "type": "steel",
+    "height_cm": 29.0,
+    "radius_cm": 4.5,
+    "volume_ml": 1000,
+    "station_count": 5,
+    "height_source": "db_lookup",
+    "mock_fill_levels": [15, 38, 55, 72, 88]
+  },
+  {
+    "sku": "indane_14kg",
+    "label": "Indane Blue 14.2kg LPG Cylinder",
+    "type": "cylinder_lpg",
+    "height_cm": 58.0,
+    "radius_cm": 16.0,
+    "volume_ml": 14200,
+    "station_count": 5,
+    "height_source": "camera_scan",
+    "mock_fill_levels": [10, 30, 50, 70, 90]
+  },
+  {
+    "sku": "hp_5kg",
+    "label": "HP Gas 5kg Cylinder",
+    "type": "cylinder_lpg",
+    "height_cm": 36.5,
+    "radius_cm": 12.5,
+    "volume_ml": 5000,
+    "station_count": 5,
+    "height_source": "camera_scan",
+    "mock_fill_levels": [5, 25, 48, 76, 95]
+  }
+]
