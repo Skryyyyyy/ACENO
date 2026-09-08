@@ -79,25 +79,31 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#060708] text-slate-100 flex flex-col p-4 lg:p-8">
+    <div className="min-h-screen bg-[#060708] text-slate-100 flex flex-col p-4 lg:p-8 relative overflow-x-hidden">
       
+      {/* Background Ambient Glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-10 w-80 h-80 bg-emerald-500/[0.015] rounded-full blur-3xl pointer-events-none" />
+
       {/* Universal Top Header */}
-      <header className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/10 mb-8 max-w-7xl mx-auto w-full">
+      <header className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/10 mb-8 max-w-7xl mx-auto w-full relative z-10">
         <div className="flex items-center space-x-4">
-          <div className="h-12 w-12 rounded-2xl bg-white text-black flex items-center justify-center font-black text-xl shadow-xl shadow-white/5">
+          <div className="h-12 w-12 rounded-2xl bg-white text-black flex items-center justify-center font-black text-xl shadow-2xl shadow-white/10 ring-2 ring-white/20">
             TH
           </div>
           <div>
-            <div className="flex items-center space-x-2">
-              <h1 className="text-xl font-bold text-white tracking-tight">
-                THUMP // <span className="text-slate-400 font-medium">Gas OS Pro</span>
+            <div className="flex items-center space-x-2.5">
+              <h1 className="text-xl font-extrabold text-white tracking-tight">
+                THUMP <span className="text-slate-500 font-light">//</span> <span className="text-slate-300 font-medium">Acoustic Gas OS</span>
               </h1>
-              <span className="px-2.5 py-0.5 text-[10px] font-extrabold rounded-full bg-white/10 text-white border border-white/20 uppercase tracking-widest">
-                React 18 Suite
+              <span className="px-2.5 py-0.5 text-[9px] font-black rounded-full bg-white/10 text-white border border-white/20 uppercase tracking-widest font-mono">
+                Track 05: Smart Living
               </span>
             </div>
-            <p className="text-xs text-slate-400 mt-0.5">
-              Logged in as <strong className="text-white">{user.identifier || user.email}</strong> • Active: <strong className="text-white">{userCylinder.name} ({userCylinder.brand})</strong>
+            <p className="text-xs text-slate-400 mt-1 flex items-center gap-2">
+              <span>Verified: <strong className="text-white">{user.name || user.identifier}</strong></span>
+              <span className="text-slate-600">•</span>
+              <span>Cylinder: <strong className="text-white">{userCylinder.name}</strong></span>
             </p>
           </div>
         </div>
@@ -105,27 +111,27 @@ export default function App() {
         {/* View Mode & Control Buttons */}
         <div className="flex items-center space-x-3">
           {/* View Switcher Pill */}
-          <div className="bg-[#14171d] p-1 rounded-full border border-white/10 flex items-center">
+          <div className="bg-[#14171d]/90 backdrop-blur-md p-1 rounded-full border border-white/10 flex items-center shadow-inner">
             <button
               onClick={() => setViewMode('SPLIT')}
-              className={`px-3 py-1.5 rounded-full text-xs font-bold transition ${
-                viewMode === 'SPLIT' ? 'bg-white text-black' : 'text-slate-400 hover:text-white'
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 ${
+                viewMode === 'SPLIT' ? 'bg-white text-black shadow-lg shadow-white/10' : 'text-slate-400 hover:text-white'
               }`}
             >
               Split Studio
             </button>
             <button
               onClick={() => setViewMode('MOBILE_ONLY')}
-              className={`px-3 py-1.5 rounded-full text-xs font-bold transition ${
-                viewMode === 'MOBILE_ONLY' ? 'bg-white text-black' : 'text-slate-400 hover:text-white'
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 ${
+                viewMode === 'MOBILE_ONLY' ? 'bg-white text-black shadow-lg shadow-white/10' : 'text-slate-400 hover:text-white'
               }`}
             >
               iQOO Phone
             </button>
             <button
               onClick={() => setViewMode('WEB_ONLY')}
-              className={`px-3 py-1.5 rounded-full text-xs font-bold transition ${
-                viewMode === 'WEB_ONLY' ? 'bg-white text-black' : 'text-slate-400 hover:text-white'
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 ${
+                viewMode === 'WEB_ONLY' ? 'bg-white text-black shadow-lg shadow-white/10' : 'text-slate-400 hover:text-white'
               }`}
             >
               Fleet Console
@@ -134,9 +140,9 @@ export default function App() {
 
           <button
             onClick={triggerAcousticTap}
-            className="px-4 py-2 text-xs font-bold rounded-full bg-white text-black hover:bg-slate-200 active:scale-95 transition flex items-center gap-1.5 shadow-lg shadow-white/5"
+            className="px-4 py-2 text-xs font-black rounded-full bg-white text-black hover:bg-slate-200 active:scale-95 transition flex items-center gap-1.5 shadow-xl shadow-white/10"
           >
-            <Zap className="w-3.5 h-3.5" /> Tap Strike
+            <Zap className="w-3.5 h-3.5 stroke-[2.5]" /> Tap Strike
           </button>
 
           <button
