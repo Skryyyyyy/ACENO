@@ -6,7 +6,11 @@ import {
   LayoutDashboard, 
   Sliders, 
   LogOut,
-  Radio
+  Radio,
+  ExternalLink,
+  ShieldCheck,
+  Flame,
+  Activity
 } from 'lucide-react';
 import LoginPage from './components/LoginPage';
 import OnboardingScreen1 from './components/OnboardingScreen1';
@@ -14,14 +18,14 @@ import MobileAppView from './components/MobileAppView';
 import WebDashboardView from './components/WebDashboardView';
 
 export default function App() {
-  const [user, setUser] = useState({ identifier: '+91 98401 23456', name: 'Bala Murugan', role: 'ENGINEER' }); // initialized so studio is visible immediately
+  const [user, setUser] = useState({ identifier: '+91 98401 23456', name: 'Bala Murugan', role: 'ENGINEER' });
   const [inOnboarding, setInOnboarding] = useState(false);
-  const [viewMode, setViewMode] = useState('SPLIT'); // 'SPLIT' | 'MOBILE_ONLY' | 'WEB_ONLY'
+  const [viewMode, setViewMode] = useState('WEB_APP'); // 'WEB_APP' | 'MOBILE_APP'
   const [percentage, setPercentage] = useState(62.0);
   const [method, setMethod] = useState('ACOUSTIC'); // 'ACOUSTIC' | 'SCALE'
   const [userCylinder, setUserCylinder] = useState({
     name: 'Kitchen Cylinder #01',
-    brand: 'Indane',
+    brand: 'Indane Domestic',
     type: '14.2kg Domestic'
   });
 
@@ -79,107 +83,102 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#060708] text-slate-100 flex flex-col p-4 lg:p-8 relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#060708] text-slate-100 flex flex-col p-4 sm:p-6 lg:p-10 relative overflow-x-hidden select-none">
       
-      {/* Background Ambient Glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 right-10 w-80 h-80 bg-emerald-500/[0.015] rounded-full blur-3xl pointer-events-none" />
+      {/* Background Ambient Mesh Gradients */}
+      <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-white/[0.015] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/[0.012] rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Universal Top Header */}
+      {/* Universal Monochromatic Studio Navigation Bar */}
       <header className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/10 mb-8 max-w-7xl mx-auto w-full relative z-10">
+        
+        {/* Brand Logo & Telemetry Tag */}
         <div className="flex items-center space-x-4">
-          <div className="h-12 w-12 rounded-2xl bg-white text-black flex items-center justify-center font-black text-xl shadow-2xl shadow-white/10 ring-2 ring-white/20">
-            TH
+          <div className="w-11 h-11 rounded-2xl bg-white text-black flex items-center justify-center font-black text-xl shadow-2xl ring-2 ring-white/20">
+            T
           </div>
           <div>
             <div className="flex items-center space-x-2.5">
-              <h1 className="text-xl font-extrabold text-white tracking-tight">
-                THUMP <span className="text-slate-500 font-light">//</span> <span className="text-slate-300 font-medium">Acoustic Gas OS</span>
+              <h1 className="text-xl font-black text-white tracking-tight uppercase">
+                THUMP
               </h1>
+              <span className="text-slate-600 font-light">/</span>
+              <span className="text-xs font-mono text-slate-400 font-semibold tracking-wider">
+                ACOUSTIC GAS OS
+              </span>
               <span className="px-2.5 py-0.5 text-[9px] font-black rounded-full bg-white/10 text-white border border-white/20 uppercase tracking-widest font-mono">
-                Track 05: Smart Living
+                Track 05
               </span>
             </div>
-            <p className="text-xs text-slate-400 mt-1 flex items-center gap-2">
-              <span>Verified: <strong className="text-white">{user.name || user.identifier}</strong></span>
+            <p className="text-xs text-slate-400 mt-0.5 flex items-center gap-2 font-mono">
+              <span>Station: <strong className="text-white">{user.name || user.identifier}</strong></span>
               <span className="text-slate-600">•</span>
-              <span>Cylinder: <strong className="text-white">{userCylinder.name}</strong></span>
+              <span>LPG Density Model: <strong className="text-emerald-400">0.51 kg/L</strong></span>
             </p>
           </div>
         </div>
 
-        {/* View Mode & Control Buttons */}
+        {/* View Mode Switcher: Dedicated Web Console vs Standalone Mobile App */}
         <div className="flex items-center space-x-3">
-          {/* View Switcher Pill */}
-          <div className="bg-[#14171d]/90 backdrop-blur-md p-1 rounded-full border border-white/10 flex items-center shadow-inner">
+          
+          <div className="bg-[#14171d] p-1 rounded-2xl border border-white/10 flex items-center shadow-inner">
             <button
-              onClick={() => setViewMode('SPLIT')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 ${
-                viewMode === 'SPLIT' ? 'bg-white text-black shadow-lg shadow-white/10' : 'text-slate-400 hover:text-white'
+              onClick={() => setViewMode('WEB_APP')}
+              className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-200 flex items-center gap-2 ${
+                viewMode === 'WEB_APP'
+                  ? 'bg-white text-black shadow-xl shadow-white/10'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
-              Split Studio
+              <LayoutDashboard className="w-3.5 h-3.5" />
+              <span>Web Fleet Console</span>
             </button>
             <button
-              onClick={() => setViewMode('MOBILE_ONLY')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 ${
-                viewMode === 'MOBILE_ONLY' ? 'bg-white text-black shadow-lg shadow-white/10' : 'text-slate-400 hover:text-white'
+              onClick={() => setViewMode('MOBILE_APP')}
+              className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-200 flex items-center gap-2 ${
+                viewMode === 'MOBILE_APP'
+                  ? 'bg-white text-black shadow-xl shadow-white/10'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
-              iQOO Phone
-            </button>
-            <button
-              onClick={() => setViewMode('WEB_ONLY')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 ${
-                viewMode === 'WEB_ONLY' ? 'bg-white text-black shadow-lg shadow-white/10' : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Fleet Console
+              <Smartphone className="w-3.5 h-3.5" />
+              <span>Mobile App</span>
             </button>
           </div>
 
+          {/* Simulate Strike Trigger */}
           <button
             onClick={triggerAcousticTap}
-            className="px-4 py-2 text-xs font-black rounded-full bg-white text-black hover:bg-slate-200 active:scale-95 transition flex items-center gap-1.5 shadow-xl shadow-white/10"
+            className="px-4 py-2 text-xs font-black rounded-xl bg-white text-black hover:bg-slate-200 active:scale-95 transition flex items-center gap-1.5 shadow-xl shadow-white/10"
+            title="Simulate 48kHz Acoustic Impulse"
           >
-            <Zap className="w-3.5 h-3.5 stroke-[2.5]" /> Tap Strike
+            <Zap className="w-3.5 h-3.5 stroke-[2.5]" />
+            <span>Tap Strike</span>
           </button>
 
+          {/* Logout / Exit */}
           <button
             onClick={handleLogout}
             title="Sign Out"
-            className="p-2.5 rounded-full bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 border border-white/10 transition"
+            className="p-2.5 rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 border border-white/10 transition"
           >
             <LogOut className="w-4 h-4" />
           </button>
         </div>
       </header>
 
-      {/* Main Multi-Pane Viewport */}
-      <main className="max-w-7xl mx-auto w-full flex-1">
-        {viewMode === 'SPLIT' && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-5">
-              <MobileAppView
-                percentage={percentage}
-                onTriggerTap={triggerAcousticTap}
-                method={method}
-                onMethodChange={setMethod}
-                onLogout={handleLogout}
-              />
-            </div>
-            <div className="lg:col-span-7">
-              <WebDashboardView
-                percentage={percentage}
-                onTriggerTap={triggerAcousticTap}
-                onExportReport={handleExportReport}
-              />
-            </div>
-          </div>
-        )}
-
-        {viewMode === 'MOBILE_ONLY' && (
-          <div className="flex justify-center">
+      {/* Main Dedicated Content Viewport */}
+      <main className="max-w-7xl mx-auto w-full flex-1 relative z-10">
+        {viewMode === 'WEB_APP' ? (
+          /* Pure Full-Width Desktop Web Fleet Console (Zero Phone Mockup) */
+          <WebDashboardView
+            percentage={percentage}
+            onTriggerTap={triggerAcousticTap}
+            onExportReport={handleExportReport}
+          />
+        ) : (
+          /* Dedicated Clean Mobile Application Simulator */
+          <div className="flex justify-center py-2 animate-in fade-in duration-300">
             <MobileAppView
               percentage={percentage}
               onTriggerTap={triggerAcousticTap}
@@ -189,23 +188,17 @@ export default function App() {
             />
           </div>
         )}
-
-        {viewMode === 'WEB_ONLY' && (
-          <WebDashboardView
-            percentage={percentage}
-            onTriggerTap={triggerAcousticTap}
-            onExportReport={handleExportReport}
-          />
-        )}
       </main>
 
-      {/* Monochromatic Footer */}
-      <footer className="mt-12 pt-6 border-t border-white/10 flex flex-wrap justify-between items-center text-xs text-slate-500 max-w-7xl mx-auto w-full">
-        <div>THUMP Neural Engine v2.4.0 • Zero-Hardware Acoustic AI + ESP32 BLE Hardware Suite</div>
-        <div className="flex space-x-4">
-          <span className="hover:text-slate-300 transition cursor-pointer">Security Protocol</span>
-          <span className="hover:text-slate-300 transition cursor-pointer">48kHz Calibration</span>
-          <span className="hover:text-slate-300 transition cursor-pointer">iQOO NPU Docs</span>
+      {/* Strict Monochromatic Minimalist Footer */}
+      <footer className="mt-16 pt-6 border-t border-white/10 flex flex-wrap justify-between items-center text-xs text-slate-500 max-w-7xl mx-auto w-full font-mono relative z-10">
+        <div>
+          THUMP Neural Engine v2.4.0 • Zero-Hardware Acoustic AI & BLE IoT Dual-Platform
+        </div>
+        <div className="flex space-x-6">
+          <span className="hover:text-white transition cursor-pointer">48kHz PCM Stream</span>
+          <span className="hover:text-white transition cursor-pointer">Snapdragon NPU INT8</span>
+          <span className="hover:text-white transition cursor-pointer">iQOO India 2026</span>
         </div>
       </footer>
     </div>
